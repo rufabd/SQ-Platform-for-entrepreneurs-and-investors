@@ -12,6 +12,23 @@ class CommentController extends Controller
         $commentss = Comment::all();
         return view('admin.comments.index', compact('commentss'));
     }
+
+    public function store(Request $request)
+    {
+        $input = $request->all();
+        $request->validate([
+            'body'=>'required',
+        ]);
+        // $input['user_id'] = auth()->user()->id;
+        
+        if(Comment::create($input)) {
+            // return response()->json(Comment::create($input), 200);
+            return array('status' => 'success');
+        } else {
+            return array('status' => 'failed');
+        }
+    }
+
     public function destroy(Comment $comment)
     {
         $comment->delete();
