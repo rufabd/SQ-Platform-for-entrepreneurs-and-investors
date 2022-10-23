@@ -23,6 +23,21 @@ class FounderPostRequest extends FormRequest
      */
     public function rules()
     {
-        
+        return [
+            'founder_id' => ['required'],
+            'hiring_tag_id' => ['required'],
+            'industry_tag_id' => ['required'],
+            'title' => ['required', 'string'],
+            'organization_description' => ['required'],
+            'post_description' => ['required'],
+            'country' => ['required'],
+            'city' => ['required'],
+            'organization' => ['required'],
+            'organization_year' => ['required'],
+            'project_stage' => ['required'],
+            'hours_per_week' => ['required'],
+            'type_week' => ['required'],
+            'investment' => ['required'],
+        ];
     }
 }

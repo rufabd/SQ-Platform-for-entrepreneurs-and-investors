@@ -41,7 +41,23 @@ class ProjectPostController extends Controller
         return view('founder.projectPost.create', compact('phiringtags', 'pindustrytags', 'fprofiles'));
     }
 
-
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(FounderPostRequest $request)
+    {
+        // $newPost = ProjectPost::create($request->validated());
+        // return response()->json(200);
+        $newPostCreated = DB::table('project_posts')->where('title', 'like', ProjectPost::get());
+        if(ProjectPost::create($request->validated())) {
+            return array('status' => 'success');
+        } else {
+            return array('status' => 'failed');
+        }
+    }
 
     /**
      * Display the specified resource.
