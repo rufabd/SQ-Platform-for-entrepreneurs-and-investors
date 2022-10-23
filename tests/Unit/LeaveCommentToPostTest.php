@@ -28,7 +28,7 @@ class LeaveCommentToPostTest extends TestCase
             // dd($data['comment']);
             $this->assertTrue(true);
             $response->assertStatus(200);
-            // $response->assertSee($data['body']);
+            $response->assertSee($data['body']);
         } else {
             $this->assertTrue(false);
         }                                 

@@ -20,10 +20,9 @@ class CommentController extends Controller
             'body'=>'required',
         ]);
         // $input['user_id'] = auth()->user()->id;
-        
-        if(Comment::create($input)) {
-            // return response()->json(Comment::create($input), 200);
-            return array('status' => 'success');
+        $newComment = Comment::create($input);
+        if($newComment) {
+            return array('status' => 'success', 'comment'=>$newComment, 'body'=>$newComment->body);
         } else {
             return array('status' => 'failed');
         }
