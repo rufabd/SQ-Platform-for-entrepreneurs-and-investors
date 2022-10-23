@@ -37,20 +37,18 @@ class ProjectPostController extends Controller
 
         
         if ($request->has('search')) {
-            $subset = ProjectPost::where('title', 'like', "%{$request->search}%")->get()->map(function ($post) {
-                return collect($post->toArray());
+            $posts = ProjectPost::where('title', 'like', "%{$request->search}%")->get();
+            $subset = $posts->map(function ($post) {
+                return collect($post->toArray())
+                ->only(['title']);
             });
-
-            if(ProjectPost::where('title', 'like', "%{$request->search}%")->get()) {
-                return array('status'=>'success', 'posts'=>ProjectPost::where('title', 'like', "%{$request->search}%")->get());
+            if($posts) {
+                return array('status'=>'success', 'posts'=>$posts, 'title'=>$subset[0]);
             }
             else{
                 return array('status'=>'failed');
             }
         }
-        // else {
-        //     return array('status'=>'failed');
-        // }
 
         $hiringtags = ProjectPostHiringTag::all();
         $industrytags = ProjectPostIndustryTag::all();
