@@ -36,6 +36,21 @@ class ProjectPostController extends Controller
         })->get();
 
         
+        if ($request->has('search')) {
+            $subset = ProjectPost::where('title', 'like', "%{$request->search}%")->get()->map(function ($post) {
+                return collect($post->toArray());
+            });
+
+            if(ProjectPost::where('title', 'like', "%{$request->search}%")->get()) {
+                return array('status'=>'success', 'posts'=>ProjectPost::where('title', 'like', "%{$request->search}%")->get());
+            }
+            else{
+                return array('status'=>'failed');
+            }
+        }
+        // else {
+        //     return array('status'=>'failed');
+        // }
 
         $hiringtags = ProjectPostHiringTag::all();
         $industrytags = ProjectPostIndustryTag::all();
