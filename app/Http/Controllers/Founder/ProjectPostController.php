@@ -49,11 +49,9 @@ class ProjectPostController extends Controller
      */
     public function store(FounderPostRequest $request)
     {
-        // $newPost = ProjectPost::create($request->validated());
-        // return response()->json(200);
-        $newPostCreated = DB::table('project_posts')->where('title', 'like', ProjectPost::get());
-        if(ProjectPost::create($request->validated())) {
-            return array('status' => 'success');
+        $newPost = ProjectPost::create($request->validated());
+        if($newPost) {
+            return array('status' => 'success', 'post'=>$newPost);
         } else {
             return array('status' => 'failed');
         }
