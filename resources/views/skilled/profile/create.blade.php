@@ -206,7 +206,7 @@
 
                                 <div class="col-md-6">
                                     <input id="skilled_CV" type="file" class="form-control @error('skilled_CV') is-invalid @enderror"
-                                        name="skilled_CV" value="{{ old('skilled_CV') }}" required autocomplete="skilled_CV" autofocus>
+                                        name="skilled_CV" value="{{ old('skilled_CV') }}" autocomplete="skilled_CV" autofocus>
 
                                     @error('skilled_CV')
                                         <span class="invalid-feedback" role="alert">
@@ -221,7 +221,7 @@
 
                                 <div class="col-md-6">
                                     <input id="skilled_avatar" type="file" class="form-control-file @error('skilled_avatar') is-invalid @enderror"
-                                        name="skilled_avatar" value="{{ old('skilled_avatar') }}" required autocomplete="skilled_avatar" autofocus>
+                                        name="skilled_avatar" value="{{ old('skilled_avatar') }}" autocomplete="skilled_avatar" autofocus>
 
                                     @error('skilled_avatar')
                                         <span class="invalid-feedback" role="alert">

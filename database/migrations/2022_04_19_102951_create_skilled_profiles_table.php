@@ -27,8 +27,8 @@ class CreateSkilledProfilesTable extends Migration
             $table->string('skilled_experience_from');
             $table->string('skilled_experience_till');
             $table->text('skilled_experience_description');
-            $table->string('skilled_CV');
-            $table->string('skilled_avatar');
+            $table->string('skilled_CV')->nullable()->default("cvName.pdf");
+            $table->string('skilled_avatar')->nullable()->default("avatar.png");
             $table->timestamps();
         });
     }

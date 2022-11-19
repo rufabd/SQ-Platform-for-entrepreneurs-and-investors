@@ -27,7 +27,7 @@ class CreateFounderProfilesTable extends Migration
             $table->string('founder_linked_link')->nullable();
             $table->longText('founder_description')->nullable();
             // $table->string('founder_avatar')->default('default.jpg');
-            $table->string('founder_avatar');
+            $table->string('founder_avatar')->nullable()->default("avatar.jpg");
             $table->timestamps();
         });
     }

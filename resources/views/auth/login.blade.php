@@ -55,9 +55,6 @@
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
 
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
@@ -111,9 +108,6 @@
 
                 <div class="input-fieldd button">
                     <input type="submit" value="Sign in">
-                    {{-- <button type="submit" class="btn btn-primary">
-                        {{ __('Login') }}
-                    </button> --}}
                 </div>
             </form>
 
@@ -142,7 +136,7 @@
                 </div>
 
                 <div class="input-fieldd">
-                    <input id="email" type="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Enter Your Email">
+                    <input id="email_reg" type="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Enter Your Email">
 
                     @error('email')
                         <span class="invalid-feedback" role="alert">
@@ -153,12 +147,7 @@
                 </div>
 
                 <div class="input-fieldd">
-                    <input id="password" type="password" class="password @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Enter Your Password">
-                    @error('password')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+                    <input id="password_reg" type="password" class="password @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Enter Your Password">
                     <i class='bx bx-lock-alt icon' ></i>
                 </div>
 
@@ -176,8 +165,8 @@
 
                 <div class="input-fieldd">
                     <label for="role" class="col-md-4 col-form-label text-md-end text">{{ __('Create Account as ... ') }}</label>
-                    <select name="role" class="text" style="width: 200px; border-radius: 10px; height: 30px; text-align:center;">
-                        <option value="founder">Founder</option>
+                    <select name="role" id="role" class="text" style="width: 200px; border-radius: 10px; height: 30px; text-align:center;">
+                        <option id="founder" value="founder">Founder</option>
                         <option value="skilled">Skilled</option>
                         <option value="investor">Investor</option>
                         <option value="admin">Admin</option>
@@ -199,7 +188,7 @@
                 
 
                 <div class="input-fieldd button">
-                    <input type="submit" value="Create Account">
+                    <button id="button1" type="submit">Create Account</button>
                 </div>
             </form>
 

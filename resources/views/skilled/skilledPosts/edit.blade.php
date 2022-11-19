@@ -163,7 +163,7 @@
                                 <label for="type"
                                     class="col-md-4 col-form-label text-md-right">{{ __('Organization') }}</label>
 
-                                {{-- <div class="col-md-6">
+                                <div class="col-md-6">
                                     <input id="organization" type="text"
                                         class="form-control @error('organization') is-invalid @enderror" name="organization"
                                         value="{{ old('organization', $post->organization) }}" required
@@ -174,7 +174,7 @@
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
-                                </div> --}}
+                                </div>
                                 
                             </div>
 

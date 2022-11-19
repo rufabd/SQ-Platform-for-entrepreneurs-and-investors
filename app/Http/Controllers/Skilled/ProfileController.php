@@ -25,9 +25,9 @@ class ProfileController extends Controller
     
         $skilledprofile = new SkilledProfile();
         $skilledprofile->user_id=Auth::user()->id;
-        $file = $request->skilled_CV;
-        $filename = time().'.'.$file->getClientOriginalExtension();
-        $request->skilled_CV->move('assets', $filename);
+        // $file = $request->skilled_CV;
+        // $filename = time().'.'.$file->getClientOriginalExtension();
+        // $request->skilled_CV->move('assets', $filename);
 
         
 
@@ -43,7 +43,7 @@ class ProfileController extends Controller
         $skilledprofile->skilled_experience_from=$request->skilled_experience_from;
         $skilledprofile->skilled_experience_till=$request->skilled_experience_till;
         $skilledprofile->skilled_experience_description=$request->skilled_experience_description;
-        $skilledprofile->skilled_CV = $filename;
+        // $skilledprofile->skilled_CV = $filename;
 
         if($request->hasFile('skilled_avatar'))
         {
