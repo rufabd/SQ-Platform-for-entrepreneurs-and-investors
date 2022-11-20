@@ -147,7 +147,8 @@ Route::delete('/skilled-posts/delete/{post}', [App\Http\Controllers\Skilled\Skil
 
 // Public Project Posts
 
-Route::get('/founder/project-posts', [App\Http\Controllers\ProjectPostController::class, 'index', 'searchIndex'])->middleware('auth')->name('project-post-public');
+// Route::get('/founder/project-posts', [App\Http\Controllers\ProjectPostController::class, 'index', 'searchIndex'])->middleware('auth')->name('project-post-public');
+Route::get('/founder/project-posts', [App\Http\Controllers\ProjectPostController::class, 'index', 'searchIndex'])->name('project-post-public');
 // Route::get('/founder/project-posts', [App\Http\Controllers\ProjectPostController::class, 'searchIndex'])->middleware('auth')->name('project-post-public-search-by-title');
 Route::get('/founder-posts/{post}',[App\Http\Controllers\ProjectPostController::class, 'show'])->middleware('auth')->name('auth-founder-posts-show');
 
@@ -162,7 +163,8 @@ Route::delete('/comments/delete/{comment}', [App\Http\Controllers\CommentControl
 
 // Public Skilled Posts
 
-Route::get('/skilled/hiring-posts', [App\Http\Controllers\SkilledPostController::class, 'index'])->middleware('auth')->name('skilled-post-public');
+// Route::get('/skilled/hiring-posts', [App\Http\Controllers\SkilledPostController::class, 'index'])->middleware('auth')->name('skilled-post-public');
+Route::get('/skilled/hiring-posts', [App\Http\Controllers\SkilledPostController::class, 'index'])->name('skilled-post-public');
 
 Route::get('/skilled-posts/{post}',[App\Http\Controllers\SkilledPostController::class, 'show'])->middleware('auth')->name('auth-skilled-posts-show');
 

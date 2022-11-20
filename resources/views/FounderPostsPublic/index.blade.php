@@ -260,18 +260,11 @@
                         </div>
                     </div>
                 </div>
-                @if (Auth::user()->role == 'investor')
+                {{-- @if (Auth::user()->role == 'investor')
                     {{ $exist = false }}
                     @foreach ($favposts as $favpost)
                         @if($favpost->project_post_id == $post->id)
                             @if ($favpost->user_id == Auth::user()->id)
-                                {{-- <form method="POST" action="{{ route('post-favorite', $post->id) }}" enctype="multipart/form-data" >
-                                    @csrf
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Add  to favorites') }}
-                                    </button>
-                                    {{ $post->id }}
-                                </form> --}}
                                 <div style="display: none">{{ $exist = true }}</div>
 
                             
@@ -286,7 +279,6 @@
                                     <button type="submit" class="btn btn-warning">
                                         Already in your list. Go to list
                                     </button>
-                                    {{-- {{ $post->id }} --}}
                                 </form>
                     @else 
                     <form method="POST" action="{{ route('post-favorite', $post->id) }}" enctype="multipart/form-data" style="margin-top: 10px;">
@@ -294,10 +286,9 @@
                                     <button type="submit" class="btn btn-primary">
                                         {{ __('Add to favorites') }}
                                     </button>
-                                    {{-- {{ $post->id }} --}}
                                 </form>
                     @endif
-                @endif
+                @endif --}}
             </div>
         </div>
         @empty
